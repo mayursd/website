@@ -1,0 +1,172 @@
+<html>
+<head>
+<title>Dining Reservation</title>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password],input[type=email], input[type=number],input[type=date], input[type=time] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+select{    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+button {
+    background-color: #a77c52;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container {
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+</style>
+
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+function nmval(){
+	var name=/^[A-Z a-z\s]+$/
+	var nm=document.getElementById("uname").value;
+	if(nm.match(name)){
+		return true
+	}
+	alert("Enter valid first name")
+	document.getElementById("uname").value=[];//clears the text if invalid
+	return false
+}
+
+function emval()
+{
+    const emva = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+    var check=document.getElementById("email").value
+    if(check.match(emva))
+        return true
+    alert("not a valid email id")
+    document.getElementById("email").value=[];
+    return false;
+}
+
+function phoneval(){
+    const emva = /^\d{10}$/;//validate a 10 digit no 
+    var check=document.getElementById("mobno").value
+    if(check.match(emva))
+        return true
+    alert("not a valid phone no")
+    document.getElementById("mobno").value=[];
+    return false;
+}
+
+function dtval() {//heres the date validation  
+    var today =new Date();//get object with today's date
+    
+    var inputDate = new Date(document.getElementById("date").value);
+    if(inputDate < today) {//check if date is after/on todays date
+        alert("Enter valid date")
+        document.getElementById("date").value=[]
+        return false;
+    } else {
+        return true;
+    }
+}
+function pplval() //validate no of people
+{
+	const emva = /^\d$/;
+    var check=document.getElementById("noppl").value
+    if(check.match(emva))
+        return true
+    alert("not a valid no")
+    document.getElementById("noppl").value=[];
+    return false;
+}
+</script>
+</head>
+<body>
+<img src="logo.png" height="130" width="1350">
+<div class="topnav">
+  <a href="Home.html">Home</a>
+  <a href="about us.html">About Us</a>
+  <a href="Gallery.html">Gallery</a>
+  <a class="active" href="Book now.html">Book Now</a>
+  <a href="offer.html">Special Offers</a>
+  <a href="Team.html">Our Team</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+</div>
+
+</div>
+
+<img src="12.jpg" height="530" width="1350">
+
+<font color=white>
+<h1><font color=white><center>Dining Reservation Form<center></h1>
+
+<form action="dining.php" method="POST">
+ 
+  <div class="container">
+    <label for="uname"><b>Name<font color=red>*</b></label><br>
+    <input type="text" placeholder="Enter your name" name="uname" onchange="nmval();" ><br><br><br>
+
+    <label for="city"><b><font color=white>City<font color=red>*</b></label><br>
+    <input type="text" placeholder="Enter your address" name="city" ><br><br><br><br>
+
+    <label for="mobno"><b><font color=white>Mob no.<font color=red>*</b></label><br>
+    <input required type="number" placeholder="Enter your mob no." name="mobno" maxlength=10 onchange="phoneval();"><br><br><br><br><br>
+
+    <label for="email"><b><font color=white>Email Address<font color=red>*</b></label><br>
+    <input required type="email" placeholder="Enter your email id." name="email"  onchange="emval();"><br><br><br><br><br>
+
+    <label for="dates"><b><font color=white>Reservation Date<font color=red>*</b></label><br>
+    <input type="date" placeholder="Enter your arrival date" name="date1" onchange="dtval();" ><br><br><br><br><br>
+
+    <label for="uname"><b><font color=white>For how many people do you want to book the table?<font color=red>*</b></label><br>
+    <input type="text" placeholder="Enter no of people" name="nog"  onchange="pplval();"><br><br>
+ 
+  <button type="submit">Reserve A Table</button>
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1">
+   
+  </div>
+</form>
+
+<div class="footer">
+<div class="footer-side"><a href="#">Home</a> <a href="#">About us</a> <a href="#">Recent articles</a> <a href="#">Email</a> <a href="#">Resources</a>
+<a href="#">Links</a></div>
+
+<div class="footer-right">© Copyright 2020. Designed by <a target="_blank" href="MnA.html">MnA</a>
+
+</div>
+</div>
+</body>
+</html>

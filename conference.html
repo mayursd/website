@@ -1,0 +1,191 @@
+<html>
+<head>
+<title>Conference</title>
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+form {border: 3px solid #f1f1f1;}
+
+input[type=text], input[type=password],input[type=email], input[type=number],input[type=date], input[type=time] {
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+select{   
+    width: 50%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+button {
+    background-color: #a77c52;
+    color: black;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    opacity: 0.8;
+}
+
+.imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+}
+
+img.avatar {
+    width: 40%;
+    border-radius: 50%;
+}
+
+.container 
+{
+    padding: 16px;
+}
+
+span.psw {
+    float: right;
+    padding-top: 16px;
+}
+</style>
+
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+
+function nmval(){
+	var name=/^[A-Z a-z\s]+$/
+	var nm=document.getElementById("uname").value;
+	if(nm.match(name)){
+		return true
+	}
+	alert("Enter valid first name")
+	document.getElementById("uname").value=[];
+	return false
+}
+
+function emval()
+{
+    const emva = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+    var check=document.getElementById("email").value
+    if(check.match(emva))
+        return true
+    alert("not a valid email id")
+    document.getElementById("email").value=[];
+    return false;
+}
+
+function phoneval(){
+    const emva = /^\d{10}$/;//validate a 10 digit no 
+    var check=document.getElementById("mobno").value
+    if(check.match(emva))
+        return true
+    alert("not a valid phone no")
+    document.getElementById("mobno").value=[];
+    return false;
+}
+
+function dtval() {//heres the date validation  
+    var today =new Date();  
+    var inputDate = new Date(document.getElementById("date").value);
+    if(inputDate < today) {
+    
+        alert("Enter valid date")
+        document.getElementById("date").value=[]
+        return false;
+    } else {
+        return true;
+    }
+}
+function pplval() 
+{
+	const emva = /^\d$/;
+    var check=document.getElementById("noppl").value
+    if(check.match(emva))
+        return true
+    alert("not a valid no")
+    document.getElementById("noppl").value=[];
+    return false;
+}
+</script>
+
+</head>
+<body>
+<img src="logo.png" height="130" width="1350">
+<div class="topnav">
+  <a href="Home.html">Home</a>
+  <a href="about us.html">About Us</a>
+  <a href="Gallery.html">Gallery</a>
+  <a class="active" href="Book now.html">Book Now</a>
+  <a href="offer.html">Special Offers</a>
+  <a href="Team.html">Our Team</a>
+  <a href="javascript:void(0);" class="icon" onclick="myFunction()">
+
+</div>
+
+</div>
+<br>
+<h1><font color=white><center>CONFERENCES AT MERIDIAN</center></h1>
+<p><img src="meet1.jpg" alt="Conference" width="500" height="300" align="left"><br><br><br><br><h3><font color=white>The SVS resort and Club is one of the premier, much sought-after destinations for residential conferences, corporate events, team building activities and off-site day picnics. The diverse venues available here are designed to conduct business events in the most professional atmosphere alongside the best recreational activities such as football, cricket, swimming pool, and outdoor & indoor activities. There are various venues to cater to large scale meetings as well as moderate to smaller group meets. At Corinthians, our dedicated professional team will assist you to plan and conduct events from start to finish, so you can easily concentrate on achieving the objectives of your conference</h3></p>
+
+<br><br>
+<br>
+<br>
+<br>
+<br><br><br><br><br><br>
+
+
+
+<br>
+<form action="conference.php" method="post" name="wedf">
+ 
+  <div class="container">
+    <label for="uname"><b>Name<font color=red>*</b></label><br>
+    <input type="text" placeholder="Enter your name" name="uname" onchange="nmval();" required><br><br><br>
+
+    <label for="city"><b><font color=white>City<font color=red>*</b></label><br>
+    <input type="text" placeholder="Enter your address" name="city" required><br><br><br><br>
+
+    <label for="mobno"><b><font color=white>Mob no.<font color=red>*</b></label><br>
+    <input required type="number" placeholder="Enter your mob no." name="mobno" maxlength=10 onchange="phoneval();"><br><br><br><br><br>
+
+    <label for="email"><b><font color=white>Email Address<font color=red>*</b></label><br>
+    <input required type="email" placeholder="Enter your email id." name="email"  onchange="emval();"required><br><br><br><br><br>
+
+    <label for="dates"><b><font color=white>Reservation Date<font color=red>*</b></label><br>
+    <input type="date" placeholder="Enter your arrival date" name="date1" onchange="dtval();" required><br><br><br><br><br>
+
+	
+	<b><font color=white><b>Select a Conference Type</b>:<br> 
+		<select name="wedpack" id ='wedpack'>
+	  <option value="Silver">Product Launch</option>
+	  <option value="Gold">Board meeting</option>
+	  <option value="Platinum">Press conference</option>
+	    <option value="Platinum">Seminar</option>
+		  <option value="Platinum">Conclave</option>
+	</select>
+
+<br><br>
+    <b><font color=white></b>
+    <b>Approximate Number of guests</b>
+	<select name="nog" id='nog'>
+	  <option value="Silver">0-100</option>
+	  <option value="Gold">100-300</option>
+	  <option value="Platinum">300-500</option>
+	</select>
+<br><br>
+  <button type="submit">Reserve A Conference Room</button>
+  </div>
+
+  <div class="container" style="background-color:#000">
+   
+  </div>
+</form>
+
+
